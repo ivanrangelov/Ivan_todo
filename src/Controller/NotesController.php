@@ -9,11 +9,30 @@ use Symfony\Component\Routing\Annotation\Route;
 class NotesController extends AbstractController
 {
     /**
-    * @Route("/notes")
+    * @Route("/")
      */
-    public function notesAction()
+    public function homeAction()
     {
         return new Response('Hi!');
 
+    }
+
+    /**
+     * @Route("/mynotes")
+     */
+
+    public function mynotes()
+    {
+      return new Response("My Notes:");
+    }
+
+
+    /**
+     * @Route("/{selected_note}")
+     */
+
+    public function selectedNote($selected_note)
+    {
+      return new Response(sprintf('Selected Note: "%s"', $selected_note));
     }
 }
