@@ -8,22 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NotesController extends AbstractController
 {
-    /**
-    * @Route("/")
-     */
-    public function homeAction()
-    {
-        return new Response('Hi!');
-
-    }
 
     /**
-     * @Route("/mynotes")
+     * @Route("/")
      */
 
     public function mynotes()
     {
-      return new Response("My Notes:");
+      return new return $this->render('/home.html.twig');
     }
 
 
