@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome to Symfony!</title>
-    </head>
-    <body>
-        <h1>{{ page_title }}</h1>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
 
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block body %}
+
+        {# <form action="/action_page.php">
+        <label for="title">Title:</label> <br>
+        <textarea id="textarea_title" name="text" cols="25" rows="1"></textarea> <br><br>
+        <label for="task_description">Task Description:</label><br>
+        <textarea id="textarea_description" name="text" cols="50" rows="8"></textarea> <br><br>
+
+
+        <label for="Finished">Finished? </label>
+        <select name="finished" id="finished">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+
+        </select>
+
+        <label for="start">Due date:</label>
+
+      <input type="date" id="due_date" name="trip-due_date"
+       value=""
+       min="2018-01-01" max="2023-12-31">
+
+        <br><br>
+        <input type="submit" name="btn-submit" value="Save">
+        </form> #}
+
+
+
+
+
+        {% endblock %}
     </body>
 </html>
