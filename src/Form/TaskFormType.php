@@ -6,6 +6,7 @@ use App\Entity\Note;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TaskFormType extends AbstractType
 {
@@ -16,7 +17,9 @@ class TaskFormType extends AbstractType
             ->add('title')
             ->add('date_due')
             ->add('completed')
+            ->add('save', SubmitType::class, ['label' => 'Save Changes'])
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -25,4 +28,6 @@ class TaskFormType extends AbstractType
             'data_class' => Note::class,
         ]);
     }
+
+
 }

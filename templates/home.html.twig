@@ -41,9 +41,55 @@
         <input type="submit" name="btn-submit" value="Save">
         </form> #}
 
+<br>
+<a href="{{ path('create')}}" >
+<input type="button" onclick="location.href='';" value="Create a new task" />
+</a>
+<br> <br>
 
 
+    <table>
 
+    <tr>
+    <th>    id
+    <th>    Title
+    <th>    Task Description
+    <th>    Due Date |
+    <th>    Hour:Minute |
+    <th>    Progress |
+    <th>    Options |
+
+    </tr>
+
+        {% for note in notes %}
+        <tr>
+      <td>  {{ note.id }} </td>
+      <td>  {{ note.title }} </td>
+      <td>  {{ note.note }}   {# description text :i:s#}
+      <td>  {{ note.dateDue|date('d-m-Y') }}  </td>
+      <td>  {{ note.dateDue|date('h:i') }}  </td>
+
+        {% if note.isCompleted == false %}
+        <td><p style="color:red;">Completed </p></td>
+        {% endif %}
+
+         {% if note.isCompleted == true %}
+       <td><p style="color:green;">Completed </p></td>
+        {% endif %}
+
+    <td>
+     <a href="{{ path('create', {id: note.id}) }}">
+     <input type="button" value="Edit" />
+      </a>
+
+     <a href="{{ path('delete', {id: note.id}) }}">
+     <input type="button" value="Delete" />
+      </a>
+    </td>
+        {% endfor %}
+
+     </tr>
+        </table>
 
         {% endblock %}
     </body>

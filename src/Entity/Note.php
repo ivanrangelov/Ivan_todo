@@ -17,7 +17,7 @@ class Note
     #[ORM\Column( type:"text", length: 255, nullable: true)]
     private ?string $note = null;
 
-    #[ORM\Column(length: 255, unique:true)]
+    #[ORM\Column(length: 255, unique:false)]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
